@@ -1,0 +1,9 @@
+name: TpaPlugin
+version: '${project.version}'
+main: dev.rumble.tpaplugin.TpaPlugin
+api-version: '1.20'
+
+commands:
+  tpr:
+    description: "Solicita teletransportarte a un usuario"
+
