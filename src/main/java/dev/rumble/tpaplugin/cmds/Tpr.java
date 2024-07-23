@@ -26,10 +26,9 @@ public class Tpr implements CommandExecutor {
 
                     break;
                 default: sender.sendMessage("Argumentos inválidos!"); break;
-                return true
-            }
 
+            }
+        return true;
         }
 
     }
-}
