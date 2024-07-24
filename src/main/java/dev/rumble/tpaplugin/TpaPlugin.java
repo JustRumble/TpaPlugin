@@ -19,13 +19,13 @@ public final class TpaPlugin extends JavaPlugin{
         getCommand("tprdeny").setExecutor(new TprDeny());
         ColoredMsg.sendToConsole(prefix + "El plugin se inicio &acorrectamente\n\t&rVersion: "
                 +"&6"+ getDescription().getVersion()
-                + "&rDesarrollador: &9Rumble.&epy"
+                + " &r| Desarrollador: &9Rumble.&epy"
         );
     }
 
     @Override
     public void onDisable() {
         ColoredMsg.sendToConsole(prefix + "Se desactivo &acorrectamente el plugin\n"
-                + "\tGracias por usar mi plugin!");
+                + "¡Gracias por usar mi plugin!\n-Rumble.py ");
     }
 }
