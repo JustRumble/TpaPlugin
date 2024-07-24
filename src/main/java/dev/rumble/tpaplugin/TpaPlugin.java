@@ -5,19 +5,22 @@ import dev.rumble.tpaplugin.cmds.TprAccept;
 import dev.rumble.tpaplugin.cmds.TprDeny;
 import org.bukkit.plugin.java.JavaPlugin;
 import dev.rumble.utils.ColoredMsg;
-import java.util.HashMap;
 import java.util.UUID;
+import java.util.concurrent.ConcurrentHashMap;
 
 
 public final class TpaPlugin extends JavaPlugin{
-    public static HashMap<UUID, UUID> tpaRequests = new HashMap<>();
-    public final static String prefix = "&l&6[TpaPlugin] ";
+    public static ConcurrentHashMap<UUID, UUID> tpaRequests = new ConcurrentHashMap<>();
+    public final static String prefix = "&6&l[TpaPlugin]&r ";
     @Override
     public void onEnable() {
         getCommand("tpr").setExecutor(new Tpr());
         getCommand("tpraccept").setExecutor(new TprAccept());
         getCommand("tprdeny").setExecutor(new TprDeny());
-        ColoredMsg.sendToConsole(prefix + "El plugin se inicio &acorrectamente");
+        ColoredMsg.sendToConsole(prefix + "El plugin se inicio &acorrectamente\n\t&rVersion: "
+                +"&6"+ getDescription().getVersion()
+                + "&rDesarrollador: &9Rumble.&epy"
+        );
     }
 
     @Override

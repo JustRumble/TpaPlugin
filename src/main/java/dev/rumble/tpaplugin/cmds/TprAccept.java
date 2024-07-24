@@ -16,14 +16,16 @@ public class TprAccept implements CommandExecutor{
         if(!(sender instanceof Player)){
             ColoredMsg.sendToConsole( TpaPlugin.prefix + "&cEste comando no puede ser usado en la consola!");
         }else{
+
             UUID userUUID = TpaPlugin.tpaRequests.get(((Player) sender).getUniqueId());
             if(userUUID != null) {
-                Player destination = Bukkit.getPlayer(userUUID);
-                ColoredMsg.sendToPlayer(destination,  TpaPlugin.prefix + "&e" + sender.getName() + " &a&lacepto &r&6tu solicitud de tp!");
-                destination.teleport(((Player) sender));
-                TpaPlugin.tpaRequests.remove(destination.getUniqueId());
+                Player tpRequester = Bukkit.getPlayer(userUUID);
+                ColoredMsg.sendToPlayer(((Player) sender), TpaPlugin.prefix + "Has &a&laceptado &rla solicitud de tp exitosamente.");
+                ColoredMsg.sendToPlayer(tpRequester,  TpaPlugin.prefix + "&e" + sender.getName() + " &a&lacepto &r&6tu solicitud de tp!");
+                tpRequester.teleport(((Player) sender));
+                TpaPlugin.tpaRequests.remove(((Player) sender).getUniqueId());
             }else{
-                ColoredMsg.sendToPlayer(((Player) sender), TpaPlugin.prefix +  "&No tienes una solicitud de tp!");
+                ColoredMsg.sendToPlayer(((Player) sender), TpaPlugin.prefix +  "&cNo tienes una solicitud de tp!");
             }
         }
         return true;
