@@ -19,13 +19,21 @@ public class TprDeny implements CommandExecutor {
         }
         else{
             UUID destinationUuid = TpaPlugin.tpaRequests.get(((Player) sender).getUniqueId());
+
             if (destinationUuid != null) {
                 Player tpRequester = Bukkit.getPlayer(destinationUuid);
-                ColoredMsg.sendToPlayer(tpRequester, TpaPlugin.prefix + "&6" + sender.getName() + " &cha rechazado tu solicitud de tpa.");
-                ColoredMsg.sendToPlayer(((Player) sender), TpaPlugin.prefix + "Has &c&lrechazado &rla solicitud de tp exitosamente.");
-                TpaPlugin.tpaRequests.remove(((Player) sender).getUniqueId());
+                if(tpRequester != null){
+                    ColoredMsg.sendToPlayer(tpRequester, TpaPlugin.prefix + "&6" + sender.getName() + " &cha rechazado tu solicitud de tpa.");
+                    ColoredMsg.sendToPlayer(((Player) sender), TpaPlugin.prefix + "Has &c&lrechazado &rla solicitud de tp exitosamente.");
+                    TpaPlugin.tpaRequests.remove(((Player) sender).getUniqueId());
+                }else{
+                    ColoredMsg.sendToPlayer(((Player) sender),
+                            TpaPlugin.prefix + "El jugador que te envió solicitud de tp se desconecto! "+
+                                    "\nDebes usar el comando &a/tprfix&r para poder recibir más solicitudes de tp. ");
+                }
             } else{
-                ColoredMsg.sendToPlayer(((Player) sender), TpaPlugin.prefix +"&cNo tienes una solicitud de tp!");
+                ColoredMsg.sendToPlayer(
+                        ((Player) sender), TpaPlugin.prefix +"&cNo tienes una solicitud de tp!");
             }
         }
         return true;

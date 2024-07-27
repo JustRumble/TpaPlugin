@@ -22,7 +22,6 @@ public class Tpr implements CommandExecutor {
         }
         if (args.length == 1) {
             Player to = Bukkit.getPlayer(args[0]);
-
             if (to == null) {
                 sender.sendMessage("El jugador está desconectado o no existe");
                 return true;
@@ -42,11 +41,9 @@ public class Tpr implements CommandExecutor {
                     to.spigot().sendMessage(accept);
                     to.spigot().sendMessage(deny);
                     ColoredMsg.sendToPlayer(((Player) sender), TpaPlugin.prefix + "&aHas enviado una solicitud de tp exitosamente a " + to.getName());
-                }else{ColoredMsg.sendToPlayer(((Player) sender),  TpaPlugin.prefix +"&cEste jugador ya tiene una solicitud de tp!");}
+                }else ColoredMsg.sendToPlayer(((Player) sender),  TpaPlugin.prefix +"&cEste jugador ya tiene una solicitud de tp!");
             }
-        } else {
-            ColoredMsg.sendToPlayer(((Player) sender),"&cUso correcto: /tpr <jugador>");
-        }
+        } else ColoredMsg.sendToPlayer(((Player) sender),"&cUso correcto: /tpr <jugador>");
         return true;
         }
 
