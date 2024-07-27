@@ -11,3 +11,5 @@ commands:
     description: "Acepta una solicitud de tp"
   tprdeny:
     description: "Rechaza una solicitud de tp"
+  tprfix:
+    description: "Arregla el bug de rumble"
