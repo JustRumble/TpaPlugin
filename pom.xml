@@ -6,7 +6,7 @@
 
   <groupId>dev.rumble</groupId>
   <artifactId>TpaPlugin</artifactId>
-  <version>1.6-FINAL</version>
+  <version>1.6.1-FINAL</version>
   <packaging>jar</packaging>
 
   <name>TpaPlugin</name>
