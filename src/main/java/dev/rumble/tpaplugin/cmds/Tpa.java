@@ -2,6 +2,7 @@ package dev.rumble.tpaplugin.cmds;
 
 import dev.rumble.tpaplugin.TpaPlugin;
 import dev.rumble.utils.ColoredMsg;
+import net.md_5.bungee.api.chat.BaseComponent;
 import net.md_5.bungee.api.chat.ClickEvent;
 import net.md_5.bungee.api.chat.TextComponent;
 import org.bukkit.Bukkit;
@@ -34,12 +35,13 @@ public class Tpa implements CommandExecutor {
                     TpaPlugin.tpaRequests.put(to.getUniqueId(),((Player) sender).getUniqueId());
                     ColoredMsg.sendToPlayer(to,"Hey, " + "&e" +to.getName() + "\n"
                             +"&6" + sender.getName() + " &fte envió una solicitud para teletransportarse hacia ti, ¿Qué harás con la solicitud?");
+
                     TextComponent accept = new TextComponent(ChatColor.translateAlternateColorCodes('&', "&a[La acepto, quiero que se teletansporte a mí]"));
-                    accept.setClickEvent(new ClickEvent(ClickEvent.Action.SUGGEST_COMMAND, "/tpraccept"));
+                    accept.setClickEvent(new ClickEvent(ClickEvent.Action.SUGGEST_COMMAND, "/tpaaccept"));
                     TextComponent deny = new TextComponent(ChatColor.translateAlternateColorCodes('&', "&c[La rechazo, no quiero que se teletransporte a mí]"));
-                    deny.setClickEvent(new ClickEvent(ClickEvent.Action.SUGGEST_COMMAND, "/tprdeny"));
-                    to.spigot().sendMessage(accept);
-                    to.spigot().sendMessage(deny);
+                    deny.setClickEvent(new ClickEvent(ClickEvent.Action.SUGGEST_COMMAND, "/tpadeny"));
+                    BaseComponent[] components = {accept,deny};
+                    to.spigot().sendMessage(components);
                     ColoredMsg.sendToPlayer(((Player) sender), TpaPlugin.prefix + "&aHas enviado una solicitud de tp exitosamente a " + to.getName());
                 }else ColoredMsg.sendToPlayer(((Player) sender),  TpaPlugin.prefix +"&cEste jugador ya tiene una solicitud de tp!");
             }

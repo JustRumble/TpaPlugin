@@ -29,7 +29,7 @@ public class TpaDeny implements CommandExecutor {
                 }else{
                     ColoredMsg.sendToPlayer(((Player) sender),
                             TpaPlugin.prefix + "El jugador que te envió solicitud de tp se desconecto! "+
-                                    "\nDebes usar el comando &a/tprfix&r para poder recibir más solicitudes de tp. ");
+                                    "\nDebes usar el comando &a/tpafix&r para poder recibir más solicitudes de tp. ");
                 }
             } else{
                 ColoredMsg.sendToPlayer(
